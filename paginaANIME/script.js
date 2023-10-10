@@ -35,10 +35,60 @@ function loadResults(page) {
                 divList.appendChild(divAnim)
             });
             console.log(divList)
-            document.querySelector("body").appendChild(divList)
-            //document.querySelector("p").textContent = (data.data[0].attributes.description)
+            document.querySelector("#relog").appendChild(divList)
         })
+
         .catch();
 }
 
 loadResults(currentPage);
+
+
+
+let search, button = document.querySelector("button")
+button.addEventListener("click", function () {
+    search = document.querySelector("#search").value
+
+    let apiUrl = `https://kitsu.io/api/edge/anime?filter[text]=${search}`;
+
+    fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/vnd.api+json',
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            console.log(data);
+            let create = (element) => document.createElement(element)
+
+            let divList = create("div")
+
+
+            data.data.forEach((element, i) => {
+                let divAnim = create("div")
+                let imgAnim = create("img")
+                let nameAnim = create("h2")
+
+                imgAnim.src = element.attributes.posterImage.small
+                imgAnim.className = "poster"
+
+                nameAnim.textContent = element.attributes.canonicalTitle
+
+
+                divAnim.append(imgAnim, nameAnim)
+                divList.appendChild(divAnim)
+            });
+
+            console.log(divList)
+
+            document.querySelector("#relog").innerHTML = divList.innerHTML;
+
+            if (document.querySelector("#relog").innerHTML == "") {
+                document.querySelector("#relog").innerHTML = `<h2>No results found</h2>`
+            }
+        })
+
+        .catch();
+})

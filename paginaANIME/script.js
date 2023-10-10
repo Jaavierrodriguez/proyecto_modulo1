@@ -20,21 +20,22 @@ function loadResults(page) {
             let create = (element) => document.createElement(element)
             let divList = create("div")
 
-
             response.data.forEach((element, i) => {
                 let divAnim = create("div")
                 let imgAnim = create("img")
                 let nameAnim = create("h2")
 
-                imgAnim.src = element.attributes.coverImage.tiny
-                imgAnim.id = `${i}image`
-                nameAnim.textContent = element.attributes.canonicalTitle.toUpperCase()
-                nameAnim.id = `${i}title`
+                imgAnim.src = element.attributes.posterImage.small
+                imgAnim.className = "poster"
+
+                nameAnim.textContent = element.attributes.canonicalTitle
+
 
                 divAnim.append(imgAnim, nameAnim)
+                divList.appendChild(divAnim)
             });
-            divList.append(divAnim)
-            document.querySelector("body").innerHTML += divList
+            console.log(divList)
+            document.querySelector("body").appendChild(divList)
             //document.querySelector("p").textContent = (data.data[0].attributes.description)
         })
         .catch();

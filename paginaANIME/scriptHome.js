@@ -1,8 +1,8 @@
 
 let animes = 19.664
-let anime = Math.floor((Math.random() * animes)+1);
+let anime = Math.floor((Math.random() * animes) + 1);
 
-let apiUrl =  `https://kitsu.io/api/edge/anime?page[limit]=${1}&page[offset]=${anime}`;
+let apiUrl = `https://kitsu.io/api/edge/anime?page[limit]=${1}&page[offset]=${anime}`;
 
 fetch(apiUrl, {
   method: "GET",
@@ -20,7 +20,7 @@ fetch(apiUrl, {
 
 `;
     });
-})
+  })
 
 
 // console.log(res);

@@ -15,38 +15,52 @@ let relog = function (response) {
 
         nameAnim.textContent = element.attributes.canonicalTitle
 
-        buttonFav.id = `button${element.attributes.canonicalTitle}`
-        buttonFav.textContent = "♥ Añadir a favoritos"
+        buttonFav.id = `id${element.id}`
 
 
         divAnim.append(imgAnim, nameAnim, buttonFav)
         divList.appendChild(divAnim)
+        console.log(buttonFav.id);
+        if (localStorage.getItem("favs")) {
+            let favsArray = JSON.parse(localStorage.getItem("favs"));
+            if (favsArray.includes(`id${element.id}`)) {
+                buttonFav.innerHTML = `&#9829 Eliminar de favoritos`; // Corazón lleno
+            } else {
+                buttonFav.innerHTML = `&#9825 Añadir a favoritos`; // Corazón hueco
+            }
+        } else {
+            buttonFav.innerHTML = `&#9825 Añadir a favoritos`; // Corazón hueco por defecto
+        }
+        console.log(element.id)
 
-        //     document.querySelector(`#button${element.attributes.canonicalTitle}`).addEventListener("click", function () {
-        //         let favsArray = []
-
-        //         if (localStorage.getItem("favs")) {
-        //             favsArray = JSON.parse(localStorage.getItem("favs"))
-        //         }
-
-        //         if (localStorage.getItem("favs")) {
-        //             favsArray = JSON.parse(localStorage.getItem("favs"))
-        //         }
-        //         //Esto borra o añade dependiendo de si está o no guardado el anime en el local storage
-        //         if (favsArray.includes(this.id)) {
-        //             favsArray = favsArray.filter(anime => anime !== this.id);
-        //             this.textContent = "♥ Añadir a favoritos"
-        //         } else {
-        //             favsArray.push(this.id);
-        //             this.textContent = "♥ Eliminar de favoritos"
-        //         }
-        //     });
-
-        document.querySelector("#relog").innerHTML = divList.innerHTML;
+        document.querySelector("#relog").textContent = ""
+        document.querySelector("#relog").appendChild(divList);
 
         if (document.querySelector("#relog").innerHTML == "") {
             document.querySelector("#relog").innerHTML = `<h2>No results found</h2>`
         }
+
+        console.log(document.querySelector(`#anime${element.id}`));
+
+
+        document.querySelector(`#id${element.id}`).addEventListener("click", function () {
+            console.log("funciono");
+            let favsArray = []
+
+            if (localStorage.getItem("favs")) {
+                favsArray = JSON.parse(localStorage.getItem("favs"))
+            }
+            //Esto borra o añade dependiendo de si está o no guardado el anime en el local storage
+            if (favsArray.includes(this.id)) {
+                favsArray = favsArray.filter(id => id !== this.id);
+                this.innerHTML = "&#9825 Añadir a favoritos"
+            } else {
+                favsArray.push(this.id);
+                this.innerHTML = "&#9829 Eliminar de favoritos"
+            }
+            localStorage.setItem("favs", JSON.stringify(favsArray))
+        });
+
     })
 }
 

@@ -127,6 +127,7 @@ let relog = function () {
 
 let currentPage = 1; // Página actual
 let itemsPerPage = 20; // Número de resultados por página
+let input = document.getElementById("anime-input")
 
 // Función para cargar los resultados
 function loadResults(page) {
@@ -140,18 +141,23 @@ function loadResults(page) {
             'Accept': 'application/vnd.api+json',
         }
     })
-        .then(response => response.json())
+        .then(res => res.json())
+
 
         .then(response => relog(response) /*{
             console.log(response)
+
+
             let create = (element) => document.createElement(element)
             let divList = create("div")
+            
 
-            response.data.forEach((element, i) => {
+            res.data.forEach((element, i) => {
                 let divAnim = create("div")
                 let imgAnim = create("img")
                 let nameAnim = create("h2")
 
+                naruto.src
                 imgAnim.src = element.attributes.posterImage.small
                 imgAnim.className = "poster"
 

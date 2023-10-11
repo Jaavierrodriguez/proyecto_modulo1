@@ -28,9 +28,9 @@ fetch(apiUrl, {
 
 // Url para poder traer los favoritos a mi paginaHOME
 
-let favs = [0, 1, 2];
+let favs = [10, 20, 30];
 
-favs.forEach((idAnime) => {
+favs.forEach((idAnime, i) => {
   let apiFavs = `https://kitsu.io/api/edge/anime/${idAnime}`;
   fetch(apiFavs, {
     method: "GET",
@@ -40,7 +40,8 @@ favs.forEach((idAnime) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      res.data.forEach((anime) => {
+      console.log(res)
+      resdata.forEach((anime) => {
         document.querySelector("#animeFavs").innerHTML += `
       <img src=${anime.attributes.posterImage.medium}>
       <h2>${anime.attributes.titles.en_jp}</h2>

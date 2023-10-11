@@ -1,0 +1,50 @@
+*{
+
+    background-color: #ffe600;
+background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+
+body{
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+#bestanime{
+
+    text-align: center;
+}
+
+#header {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+
+.nav{
+
+    display: flex;
+    flex-direction: row;
+}  
+
+  #header h1{
+
+    background-color: rgba(0, 0, 0, 0.112);
+   
+  }
+
+  .footer{
+
+    padding: 0;
+    margin: 0;
+    bottom: 100%;
+  }
+
+  .footer p{
+    background-color: rgba(0, 0, 0, 0.112);
+  }
+

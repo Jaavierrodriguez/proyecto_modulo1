@@ -41,7 +41,7 @@ let relog = function (response) {
         //             this.textContent = "♥ Eliminar de favoritos"
         //         }
         //     });
-        console.log(divList)
+
         document.querySelector("#relog").innerHTML = divList.innerHTML;
 
         if (document.querySelector("#relog").innerHTML == "") {
@@ -54,7 +54,6 @@ let currentPage = Math.floor(Math.random() * 984);
 //let currentPage = 1; // Página actual
 let itemsPerPage = 20; // Número de resultados por página
 let input = document.getElementById("anime-input")
-console.log(currentPage)
 // Función para cargar los resultados
 function loadResults(page) {
     let offset = (page - 1) * itemsPerPage; // Calcular el offset

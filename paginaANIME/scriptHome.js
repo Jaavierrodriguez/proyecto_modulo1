@@ -1,6 +1,7 @@
 let animes = 19.664;
 let anime = Math.floor(Math.random() * animes);
 
+
 let apiUrl = `https://kitsu.io/api/edge/anime?page[limit]=${1}&page[offset]=${anime}`;
 
 fetch(apiUrl, {
@@ -23,8 +24,8 @@ fetch(apiUrl, {
     <p>${anime.attributes.description}</p>
     `;
     });
-    });
-  });
+  })
+  })
 
 // console.log(res);sss
 //   .catch((error) => console.error("No se a podido realizar la acción" + error));

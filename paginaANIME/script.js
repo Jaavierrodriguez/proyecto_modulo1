@@ -27,7 +27,7 @@ function loadResults(page) {
                 let imgAnim = create("img")
                 let nameAnim = create("h2")
 
-                naruto.src
+                
                 imgAnim.src = element.attributes.posterImage.small
                 imgAnim.className = "poster"
 

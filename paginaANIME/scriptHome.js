@@ -1,4 +1,4 @@
-let animes = 19.664;
+let animes = 19664;
 let anime = Math.floor(Math.random() * animes);
 
 let apiUrl = `https://kitsu.io/api/edge/anime?page[limit]=${1}&page[offset]=${anime}`;

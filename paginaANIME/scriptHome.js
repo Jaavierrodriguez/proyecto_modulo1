@@ -28,7 +28,7 @@ fetch(apiUrl, {
 
 // Url para poder traer los favoritos a mi paginaHOME
 
-let favs = [10, 20, 30];
+let favs = [1, 2];
 
 favs.forEach((idAnime, i) => {
   let apiFavs = `https://kitsu.io/api/edge/anime/${idAnime}`;
@@ -40,15 +40,14 @@ favs.forEach((idAnime, i) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
-      resdata.forEach((anime) => {
-        document.querySelector("#animeFavs").innerHTML += `
-      <img src=${anime.attributes.posterImage.medium}>
-      <h2>${anime.attributes.titles.en_jp}</h2>
+      console.log(res);
+      // res.incluided.forEach((anime) => {
+        document.querySelector(".animeFavs").innerHTML += `
+      <img src=${res.data.attributes.posterImage.medium}>
+      <h2>${res.data.attributes.titles.en_jp}</h2>
       `;
-      });
-    });
-});
+      // });
+    })
+    .catch((error) => console.error("No se a podido realizar la acción" + error));
+})
 
-// console.log(res);sss
-//   .catch((error) => console.error("No se a podido realizar la acción" + error));

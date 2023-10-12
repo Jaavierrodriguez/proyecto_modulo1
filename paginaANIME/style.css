@@ -44,11 +44,6 @@
   font-weight: bold;
 }
 
-#input {
-  padding-top: 5%;
-  margin: 0;
-  text-align: center;
-}
 .anime {
   justify-content: center;
   padding: 40px 0px 0px 100px;
@@ -130,3 +125,78 @@
 
 }
 
+
+
+
+/*Anime List*/
+button{
+  cursor: pointer;
+}
+
+#search{
+  display: flex;
+  padding: 75px 0 30px 0;
+  justify-content: center;
+}
+
+#searchHolder{
+  height: 28px;
+  width: 500px;
+}
+
+#searchButton {
+  width: 50px;
+  height: 28px;
+  font-size: 30px;
+  padding: 10px;
+  line-height: 1px;
+}
+
+#relog {
+  display:flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.block{
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  height: 300px;
+  width: 200px;
+  margin: 35px;
+}
+
+.block img{
+  height: 200px;
+  width: 150px;
+  border-radius: 5px;
+}
+
+.block h2{
+  padding: 10px 0;
+  font-size: 25px;
+}
+
+.buttonFav{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.buttonFavYes{
+  color:red;
+  background-color: rgba(255, 123, 0, 0.5);
+}
+
+.buttonFavNo{
+  background-color: rgba(0, 0, 0, 0.2);
+  color: whitesmoke
+}

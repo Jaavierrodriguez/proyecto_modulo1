@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Anime List</title>
+
+    <link rel="icon" type="image/svg+xml" href="https://nadekobot.readthedocs.io/en/latest/assets/favicon.png">
 </head>
 
 
@@ -29,18 +31,21 @@
     </header>
 
     <main>
+        <div id="error"></div>
 
-        <div id="input">
-
-            <input type="text" id="search" placeholder="Search Anime..." />
-            <button id="button">Find</button>
-
+        <div id="search">
+            <input type="text" id="searchHolder" placeholder="Search Anime..." />
+            <button id="searchButton">&#x2315;</button>
         </div>
 
         <div id="relog"></div>
     </main>
 
-    <footer></footer>
+    <footer class="footer">
+
+        <p>Estos datos están sacados de : https://kitsu.io/api/edge/</p>
+
+    </footer>
 
     <script src="script.js"></script>
 </body>

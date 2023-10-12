@@ -3,7 +3,9 @@ let relog = function (response) {
     let create = (element) => document.createElement(element)
     let divList = create("div")
 
-
+    if (response.data.length == 0) {
+        document.querySelector("#relog").innerHTML = `<h2>No results found</h2>`
+    }
 
     response.data.forEach((element, i) => {
         let divAnim = create("div")
@@ -20,7 +22,7 @@ let relog = function (response) {
 
         divAnim.append(imgAnim, nameAnim, buttonFav)
         divList.appendChild(divAnim)
-        console.log(buttonFav.id);
+
         if (localStorage.getItem("favs")) {
             let favsArray = JSON.parse(localStorage.getItem("favs"));
             if (favsArray.includes(`id${element.id}`)) {
@@ -31,20 +33,20 @@ let relog = function (response) {
         } else {
             buttonFav.innerHTML = `&#9825 Añadir a favoritos`; // Corazón hueco por defecto
         }
-        console.log(element.id)
+
 
         document.querySelector("#relog").textContent = ""
         document.querySelector("#relog").appendChild(divList);
 
-        if (document.querySelector("#relog").innerHTML == "") {
-            document.querySelector("#relog").innerHTML = `<h2>No results found</h2>`
-        }
+        // if (element == []) {
+        //     document.querySelector("#relog").innerHTML = `<h2>No results found</h2>`
+        // }
 
-        console.log(document.querySelector(`#anime${element.id}`));
+
 
 
         document.querySelector(`#id${element.id}`).addEventListener("click", function () {
-            console.log("funciono");
+
             let favsArray = []
 
             if (localStorage.getItem("favs")) {
@@ -64,11 +66,10 @@ let relog = function (response) {
     })
 }
 
-let currentPage = Math.floor(Math.random() * 984);
-//let currentPage = 1; // Página actual
+let currentPage = Math.floor(Math.random() * 984); // Página
 let itemsPerPage = 20; // Número de resultados por página
 let input = document.getElementById("anime-input")
-// Función para cargar los resultados
+
 function loadResults(page) {
     let offset = (page - 1) * itemsPerPage; // Calcular el offset
 

@@ -28,17 +28,45 @@ fetch(apiUrl, {
 
 // Url para poder traer los favoritos a mi paginaHOME
 
-let favs = [];
+let favsNum = [];
 let favsId = JSON.parse(localStorage.getItem("favs"));
 for (let i = 0; i < favsId.length; i++) {
-  
-  let number = favsId[i].replace("id", "");
-  favs.push(number)
-  
-}
-console.log(favs);
 
-favs.forEach((idAnime) => {
+  let number = favsId[i].replace("id", "");
+  favsNum.push(number)
+
+}
+
+
+
+//Funcion añadir favs
+let favs = function (button) {
+  let favsArray = []
+
+  if (localStorage.getItem("favs")) {
+    favsArray = JSON.parse(localStorage.getItem("favs"))
+  }
+  console.log(favsArray)
+  console.log(button)
+  console.log(button.id)
+
+  if (favsArray.includes(button.id)) {
+    favsArray = favsArray.filter(id => id !== button.id);
+    button.innerHTML = "&#9825"
+    button.className = "buttonFav buttonFavNo"
+  } else {
+    favsArray.push(button.id);
+    button.innerHTML = "&#9829"
+    button.className = "buttonFav buttonFavYes"
+  }
+
+  localStorage.setItem("favs", JSON.stringify(favsArray))
+}
+
+
+
+
+favsNum.forEach((idAnime) => {
   let apiFavs = `https://kitsu.io/api/edge/anime/${idAnime}`;
   fetch(apiFavs, {
     method: "GET",
@@ -49,14 +77,35 @@ favs.forEach((idAnime) => {
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
-      // res.incluided.forEach((anime) => {
-      document.querySelector(".animeFavs").innerHTML += `
-      <div class = "block">
+      let divAnimeFav = document.createElement("div")
+      divAnimeFav.className = "block"
+
+      divAnimeFav.innerHTML += `
       <img src=${res.data.attributes.posterImage.medium}>
-      <h2 class = "titleList">${res.data.attributes.titles.en_jp}</h2></div>
+      <h2 class = "titleList">${res.data.attributes.titles.en_jp}</h2>
       `;
-      // });
+      document.querySelector("#relog").appendChild(divAnimeFav)
+
+      let buttonFav = document.createElement("button")
+      buttonFav.id = `id${res.data.id}`
+
+      if (localStorage.getItem("favs")) {
+        let favsArray = JSON.parse(localStorage.getItem("favs"));
+        if (favsArray.includes(`id${res.data.id}`)) {
+          buttonFav.innerHTML = `&#9829`; // Corazón lleno
+          buttonFav.className = "buttonFav buttonFavYes"
+        } else {
+          buttonFav.innerHTML = `&#9825`; // Corazón hueco
+          buttonFav.className = "buttonFav buttonFavNo"
+        }
+      } else {
+        buttonFav.innerHTML = `&#9825`; // Corazón hueco por defecto
+        buttonFav.className = "buttonFav buttonFavNo"
+      }
+      divAnimeFav.appendChild(buttonFav)
+      console.log(res.data.id)
+      document.querySelector(`#id${res.data.id}`).addEventListener("click", function () { favs(buttonFav) })
+
     })
-    .catch((error) => console.error("No se a podido realizar la acción" + error));
+    .catch();
 })
- 

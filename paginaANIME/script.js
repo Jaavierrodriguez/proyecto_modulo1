@@ -74,7 +74,7 @@ let relog = function (response) {
 }
 
 
-
+//Anime list random
 let randomPage = Math.floor(Math.random() * 984); // Página
 let itemsPerPage = 20; // Número de resultados por página
 

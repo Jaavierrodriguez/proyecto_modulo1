@@ -178,6 +178,7 @@ button {
 .block h2 {
   padding: 10px 0;
   font-size: 25px;
+  cursor: pointer;
 }
 
 .buttonFav {

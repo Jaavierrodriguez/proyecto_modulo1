@@ -1,4 +1,5 @@
 let create = (element) => document.createElement(element)
+let linkId = ""
 
 //Funcion añadir favs
 let favs = function (button) {
@@ -21,6 +22,33 @@ let favs = function (button) {
     localStorage.setItem("favs", JSON.stringify(favsArray))
 }
 
+
+//Funcion Anime Data
+let data = function (response) {
+    console.log(response)
+    document.querySelector("#relog").textContent = ""
+    let divGeneral = create("div"), divTitle = create("div")
+    let imgAnim = create("img")
+    let nameAnim = create("h2")
+    let synAnim = create("p")
+
+    imgAnim.src = response.data.attributes.posterImage.small
+    nameAnim.textContent = response.data.attributes.canonicalTitle
+    synAnim.textContent = response.data.attributes.synopsis
+
+    divTitle.append(nameAnim, synAnim)
+    divGeneral.append(imgAnim, divTitle)
+    document.querySelector("#relog").appendChild(divGeneral)
+
+
+
+
+
+
+
+
+}
+
 //Funcion Load Animes
 let relog = function (response) {
     console.log(response)
@@ -30,18 +58,16 @@ let relog = function (response) {
         document.querySelector("#relog").innerHTML = `<h2>No results found</h2>`
     }
 
-    response.data.forEach((element, i) => {
+    response.data.forEach((element) => {
         let divAnim = create("div")
         let imgAnim = create("img")
         let nameAnim = create("h2")
         let buttonFav = create("button")
 
         imgAnim.src = element.attributes.posterImage.small
-
         nameAnim.textContent = element.attributes.canonicalTitle
-        nameAnim.className = "titleList"
-        nameAnim.id = response.links.self
 
+        nameAnim.id = `h2${element.id}`
         buttonFav.id = `id${element.id}`
         divAnim.className = `block`
 
@@ -70,8 +96,29 @@ let relog = function (response) {
         }
 
         document.querySelector(`#id${element.id}`).addEventListener("click", function () { favs(buttonFav) })
+
+        //Anime Data
+        document.querySelector(`#h2${element.id}`).addEventListener("click", function () {
+            let idNum = element.id
+            linkId = ""
+            linkId = idNum
+            console.log(idNum)
+            fetch(`https://kitsu.io/api/edge/anime/${idNum}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/vnd.api+json',
+                }
+            })
+                .then(response => response.json())
+                .then(response => data(response))
+                .catch(error => {
+                    console.error(`Error`, error)
+                    error.textContent = "Error loading data"
+                });
+        })
     })
 }
+
 
 
 //Anime list random
@@ -115,27 +162,4 @@ buttonSearch.addEventListener("click", function () {
             console.error(`Error`, error)
             error.textContent = "Error loading data"
         });
-})
-
-buttonAnime = document.getElementById("titleList")
-
-buttonAnime.addEventListener("click", function () {
-    alert("Hiciste clic");
-    // buttonSearch.addEventListener("click", function () {
-    //     let search = document.querySelector("#searchHolder").value
-
-    //     let apiUrl = `https://kitsu.io/api/edge/anime?page[limit]=${itemsPerPage}&filter[text]=${search}`;
-
-    //     fetch(apiUrl, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Accept': 'application/vnd.api+json',
-    //         }
-    //     })
-    //         .then(response => response.json())
-    //         .then(response => relog(response))
-    //         .catch(error => {
-    //             console.error(`Error`, error)
-    //             error.textContent = "Error loading data"
-    //         });
 })

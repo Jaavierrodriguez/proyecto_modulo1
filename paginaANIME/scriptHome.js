@@ -46,9 +46,6 @@ let favs = function (button) {
   if (localStorage.getItem("favs")) {
     favsArray = JSON.parse(localStorage.getItem("favs"))
   }
-  console.log(favsArray)
-  console.log(button)
-  console.log(button.id)
 
   if (favsArray.includes(button.id)) {
     favsArray = favsArray.filter(id => id !== button.id);
@@ -103,7 +100,6 @@ favsNum.forEach((idAnime) => {
         buttonFav.className = "buttonFav buttonFavNo"
       }
       divAnimeFav.appendChild(buttonFav)
-      console.log(res.data.id)
       document.querySelector(`#id${res.data.id}`).addEventListener("click", function () { favs(buttonFav) })
 
     })

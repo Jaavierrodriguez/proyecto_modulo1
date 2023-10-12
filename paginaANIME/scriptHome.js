@@ -1,4 +1,4 @@
-let animes = 19.664;
+let animes = 19664;
 let anime = Math.floor(Math.random() * animes);
 
 let apiUrl = `https://kitsu.io/api/edge/anime?page[limit]=${1}&page[offset]=${anime}`;
@@ -28,9 +28,17 @@ fetch(apiUrl, {
 
 // Url para poder traer los favoritos a mi paginaHOME
 
-let favs = [10, 20, 30];
+let favs = [];
+let favsId = JSON.parse(localStorage.getItem("favs"));
+for (let i = 0; i < favsId.length; i++) {
+  
+  let number = favsId[i].replace("id", "");
+  favs.push(number)
+  
+}
+console.log(favs);
 
-favs.forEach((idAnime, i) => {
+favs.forEach((idAnime) => {
   let apiFavs = `https://kitsu.io/api/edge/anime/${idAnime}`;
   fetch(apiFavs, {
     method: "GET",
@@ -40,15 +48,15 @@ favs.forEach((idAnime, i) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
-      resdata.forEach((anime) => {
-        document.querySelector("#animeFavs").innerHTML += `
-      <img src=${anime.attributes.posterImage.medium}>
-      <h2>${anime.attributes.titles.en_jp}</h2>
+      console.log(res);
+      // res.incluided.forEach((anime) => {
+      document.querySelector(".animeFavs").innerHTML += `
+      <div class = "block">
+      <img src=${res.data.attributes.posterImage.medium}>
+      <h2 class = "titleList">${res.data.attributes.titles.en_jp}</h2></div>
       `;
-      });
-    });
-});
-
-// console.log(res);sss
-//   .catch((error) => console.error("No se a podido realizar la acción" + error));
+      // });
+    })
+    .catch((error) => console.error("No se a podido realizar la acción" + error));
+})
+ 

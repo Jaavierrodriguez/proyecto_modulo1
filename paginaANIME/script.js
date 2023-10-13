@@ -27,7 +27,7 @@ let favs = function (button) {
 let data = function (response) {
     console.log(response)
     document.querySelector("#relog").textContent = ""
-    let divGeneral = create("div"), divTitle = create("div"), divDetails = create("div"), divAll = create("div")
+    let divGeneral = create("div"), divTitle = create("div"), divDetails = create("div"), divAll = create("div"), divListSynop = create("div")
     let imgAnim = create("img")
     let nameAnim = create("h1")
     let synAnim = create("p")
@@ -38,6 +38,7 @@ let data = function (response) {
     divTitle.id = "divSynop"
     divDetails.id = "divDetails"
     divAll.id = "divAll"
+    divListSynop.id = "divListSynop"
 
     video.src = `https://www.youtube.com/embed/${response.data.attributes.youtubeVideoId}`
     video.frameBorder = "0";
@@ -72,7 +73,8 @@ let data = function (response) {
     divDetails.appendChild(details)
     divTitle.append(nameAnim, synAnim)
     divGeneral.append(imgAnim, divTitle)
-    divAll.append(divGeneral, divDetails)
+    divListSynop.append(divGeneral, divDetails)
+    divAll.appendChild(divListSynop)
     document.querySelector("#relog").appendChild(divAll)
     if (response.data.attributes.youtubeVideoId != null && response.data.attributes.youtubeVideoId != "") {
         divAll.appendChild(video)

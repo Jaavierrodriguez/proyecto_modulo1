@@ -254,17 +254,24 @@ button {
 
 /*Anime Details*/
 #divAll{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 10vh 0 10vh;
-  flex-wrap: wrap;
   height: 800px;
 }
-
+#divListSynop{
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
 #divGeneral{
   display: flex;
-  align-items: flex-start;
-  height: 350px;
-  width: 280px;
+  height: 400px;
+  width: 1000px;
 }
+
 
 #divGeneral img{
   margin: 0 5vh 0 0;
@@ -280,31 +287,60 @@ button {
 }
 
 #divDetails {
-  flex-direction: row-reverse;
-  float: right;
+width: 250px;
+margin-left: 10px;
+align-self: flex-start;
 }
 
+
 #divDetails li {
-  width: 20vh;
-  list-style-type: none; 
-  margin: 7px
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0; 
+
 }
 
 #divDetails h2{
+  margin: 20px;
   color:indigo
 }
 
 iframe{
-  display: flex;
   margin: 30px;
   width: 640px; 
   height: 360px;
-
 }
 
-#divlog{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+/*px-750 Anime Details*/
+@media (max-width: 751px) {
+  #divAll{
+    height: 1000px;
+  }
+  #divGeneral img{
+    margin: 20px 15px ;
+    height: 250px;
+    width: 180px;
+    border-radius: 5px;
+  }
+
+  #divListSynop {
+     flex-direction: column; /* Alinea el párrafo y la lista al principio en vertical */
+     align-items: center;
+     height: 500px;
+     width: 600px;
+  }
+  
+  #divGeneral {
+    flex-direction: column; 
+    align-items: center;
+    height: 250px;
+    width: 180px;
+  }
+
+  iframe{
+    margin:20px;
+    width: 330px; 
+    height: 190px;
+  }
 }

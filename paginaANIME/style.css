@@ -325,7 +325,7 @@ iframe{
   }
 
   #divListSynop {
-     flex-direction: column; /* Alinea el párrafo y la lista al principio en vertical */
+     flex-direction: column; 
      align-items: center;
      height: 500px;
      width: 600px;

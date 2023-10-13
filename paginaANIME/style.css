@@ -202,26 +202,24 @@ button {
   line-height: 1px;
 }
 
-#relog {
-
+#generalAnimes{
+  margin: 0 20vh 0 20vh;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
-
 .block {
   display: inline-block;
   vertical-align: top;
   position: relative;
   height: 300px;
-  width: 200px;
+  width: 150px;
   margin: 35px;
 }
 
 .block img {
   height: 200px;
-  width: 150px;
+  width: 170px;
   border-radius: 5px;
 }
 
@@ -229,6 +227,7 @@ button {
   padding: 10px 0;
   font-size: 25px;
   cursor: pointer;
+  text-align: center;
 }
 
 .buttonFav {
@@ -251,4 +250,61 @@ button {
 .buttonFavNo {
   background-color: rgba(0, 0, 0, 0.2);
   color: whitesmoke
+}
+
+/*Anime Details*/
+#divAll{
+  margin: 0 10vh 0 10vh;
+  flex-wrap: wrap;
+  height: 800px;
+}
+
+#divGeneral{
+  display: flex;
+  align-items: flex-start;
+  height: 350px;
+  width: 280px;
+}
+
+#divGeneral img{
+  margin: 0 5vh 0 0;
+  height: 350px;
+  width: 280px;
+  border-radius: 5px;
+}
+
+#divSynop p{
+  margin: 20px 0;
+  height: 200px;
+  width: 500px;
+}
+
+#divDetails {
+  flex-direction: row-reverse;
+  float: right;
+}
+
+#divDetails li {
+  width: 20vh;
+  list-style-type: none; 
+  margin: 7px
+}
+
+#divDetails h2{
+  color:indigo
+}
+
+iframe{
+  display: flex;
+  margin: 30px;
+  width: 640px; 
+  height: 360px;
+
+}
+
+#divlog{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

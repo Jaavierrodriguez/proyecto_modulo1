@@ -313,10 +313,8 @@ iframe{
 
 
 /*px-750 Anime Details*/
-@media (max-width: 751px) {
-  #divAll{
-    height: 1000px;
-  }
+@media (max-width: 750px) {
+
   #divGeneral img{
     margin: 20px 15px ;
     height: 250px;
@@ -325,21 +323,22 @@ iframe{
   }
 
   #divListSynop {
+    display: flex;
      flex-direction: column; 
      align-items: center;
-     height: 500px;
+     height: 100%;
      width: 600px;
   }
-  
+
   #divGeneral {
     flex-direction: column; 
     align-items: center;
-    height: 250px;
+    height: 5000px;
     width: 180px;
   }
 
   iframe{
-    margin:20px;
+    margin:50px 50px;
     width: 330px; 
     height: 190px;
   }

@@ -46,6 +46,8 @@
 
 .anime {
   justify-content: center;
+  display: flex;
+  
   padding: 40px 0px 0px 100px;
   display: flex;
   text-align: center;
@@ -68,14 +70,14 @@
 
 #descrip {
   height: 200px;
-  width: 1000px;
+  width: 1000vh;
   font-size: 25x;
   padding: 23px 57px 0px 76px;
   text-align: left;
 }
 
 #tusFavs {
-  padding: 90px 0px 0px 50px;
+  padding: 100px 0px 0px 50px;
   justify-content: space-between;
   text-align: left;
   font-weight: bold;
@@ -112,7 +114,9 @@
   }
 
   .anime {
-    padding: 20px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+
   }
 
   #imgTitle h2 {

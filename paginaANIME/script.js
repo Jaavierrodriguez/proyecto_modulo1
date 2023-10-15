@@ -26,8 +26,13 @@ let favs = function (button) {
 //Funcion Anime Data
 let data = function (response) {
     console.log(response)
-    document.querySelector("#relog").textContent = ""
-    let divGeneral = create("div"), divTitle = create("div"), divDetails = create("div"), divAll = create("div"), divListSynop = create("div")
+    document.querySelector("#relog").textContent = ""  //vaciar
+
+    let divGeneral = create("div")
+    let divTitle = create("div")
+    let divDetails = create("div")
+    let divAll = create("div")
+    let divListSynop = create("div")
     let imgAnim = create("img")
     let nameAnim = create("h1")
     let synAnim = create("p")

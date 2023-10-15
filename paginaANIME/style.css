@@ -116,6 +116,8 @@
   .anime {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 0px 20px 0px 0px;
 
   }
 
@@ -126,10 +128,17 @@
   #descrip {
     font-size: 18px;
     padding: 20px;
+    width: auto;
+    height: auto;
   }
 
   #tusFavs {
     padding: 10px;
+  }
+
+  #misFavs{
+    padding:20px 0px 0px 0px;
+    margin: 0 10vh 0 10vh
   }
 
 }

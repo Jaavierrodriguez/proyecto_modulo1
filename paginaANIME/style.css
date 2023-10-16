@@ -157,18 +157,20 @@ button{
 #searchHolder{
   height: 28px;
   width: 500px;
+  padding-left: 5px;
 }
 
 #searchButton {
   width: 50px;
   height: 28px;
+  margin-left: 5px;
+  padding-bottom: 5px;
   font-size: 30px;
-  padding: 10px;
   line-height: 1px;
 }
 
 #generalAnimes{
-  margin: 0 20vh 0 20vh;
+  margin: 0 15vh 50px 15vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -199,7 +201,6 @@ button{
   position: absolute;
   top: 0px;
   left: 0px;
-
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -217,6 +218,42 @@ button{
   color: whitesmoke
 }
 
+#pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0 50px 0;
+}
+
+#pageNumber{
+  margin: 0 15px
+}
+
+#searchNumber{
+  margin: 0 5px 0 50px;
+  width: 50px;
+  height: 25px;
+  padding-left: 3px;
+}
+
+#numberButton{
+  width: 25px;
+  height: 25px;
+  font-size: 26px;
+  padding-bottom: 3px;
+  line-height: 1px;
+}
+
+#resultsError{
+  text-align: center; 
+}
+
+.pageArrow{
+  width: 30px;
+  font-size: 18px;
+}
+
+
 /*Anime Details*/
 #divAll{
   display: flex;
@@ -224,17 +261,16 @@ button{
   justify-content: space-between;
   align-items: center;
   margin: 0 10vh 0 10vh;
-  height: 800px;
 }
+
 #divListSynop{
-  display: flex;
-  align-items: center;
+  display: inline-block;
   margin: 0;
 }
+
 #divGeneral{
   display: flex;
-  height: 400px;
-  width: 1000px;
+  align-items: center;
 }
 
 
@@ -245,33 +281,32 @@ button{
   border-radius: 5px;
 }
 
-#divSynop p{
+#divSynop{
+  display: inline-block;
+  align-items: flex-start;
   margin: 20px 0;
-  height: 200px;
-  width: 500px;
+}
+
+#divSynop h1{
+  margin: 15px;
 }
 
 #divDetails {
-width: 250px;
-margin-left: 10px;
-align-self: flex-start;
+margin: 20px;
 }
 
 
 #divDetails li {
-  justify-content: flex-end;
   list-style: none;
-  padding: 0; 
-
 }
 
 #divDetails h2{
-  margin: 20px;
+  margin: 15px;
   color:indigo
 }
 
 iframe{
-  margin: 30px;
+  margin: 25px 15px 50px 15px;
   width: 640px; 
   height: 360px;
 }
@@ -284,26 +319,26 @@ iframe{
     margin: 20px 15px ;
     height: 250px;
     width: 180px;
-    border-radius: 5px;
   }
-
-  #divListSynop {
-    display: flex;
-     flex-direction: column; 
-     align-items: center;
-     height: 100%;
-     width: 600px;
-  }
-
+  
   #divGeneral {
+    display: flex;
     flex-direction: column; 
     align-items: center;
-    height: 5000px;
-    width: 180px;
   }
 
+  #divAll{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+   #divListSynop {
+     display: flex;
+     flex-direction: column; 
+     align-items: center;
+  } 
+
   iframe{
-    margin:50px 50px;
     width: 330px; 
     height: 190px;
   }
